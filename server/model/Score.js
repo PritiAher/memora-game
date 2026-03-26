@@ -78,6 +78,7 @@ const scoreSchema = new mongoose.Schema(
 // Without an index, leaderboard queries would get slower as scores pile up (full collection scan).
 // With an index, MongoDB jumps directly to the right data — O(log n) instead of O(n).
 scoreSchema.index({ score: -1, moves: 1 });
+//Index DB
 // This is a COMPOUND index — it covers two fields together:
 //   score: -1 → sort by score in DESCENDING order (highest score first)
 //   moves: 1  → then sort by moves in ASCENDING order (fewest moves first) as a tiebreaker
